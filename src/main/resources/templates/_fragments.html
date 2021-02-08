@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">博客详情</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+
+<!--导航-->
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui purple header item">Blog</h2>
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i class=" home icon"></i>首页</a>
+            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class=" idea icon"></i>分类</a>
+            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class=" tags icon"></i>标签</a>
+            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class=" clone icon"></i>归档</a>
+            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class=" info icon"></i>关于我</a>
+            <a href="#" th:href="@{/message}" class="inverted m-item item m-mobile-hide yellow" th:classappend="${n==6} ? 'active'"><i class="comment alternate yellow red"></i><h2 class="ui yellow header item">留言板</h2></a>
+            <div class="right m-item item m-mobile-hide">
+                <form name="search" action="#" th:action="@{/search}" method="get" target="_blank">
+                    <div class="ui icon inverted  input m-margin-tb-tiny">
+                        <input type="text" name="query" placeholder="Search...." th:value="${query}">
+                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
+            </div>
+            <div class="right m-item m-mobile-hide menu">
+                <a href="#" th:href="@{/login}" th:if="${session.visitor == null}" class="item teal"><h4 class="ui pink header item">用户登录</h4></a>
+                <div class="ui dropdown  item">
+                    <img src="../static/images/chopper.jpg" th:unless="${session.visitor == null}" th:src="${session.visitor.avatar}"  class="image" style="border-radius:50%; ">
+                    <div class="text">
+<!--                        <a href="#" th:href="@{/logout}" th:unless="${session.isEmpty()}" th:text="${session.visitor.nickname}" class="item teal">用户登录</a>-->
+<!--                        <img src="../static/images/chopper.jpg" th:unless="${session.isEmpty()}" th:src="${session.visitor.avatar}"  class="image" style="width:100px; height:100px; border-radius:50%; ">-->
+                        <a href="#" th:href="@{/}" th:unless="${session.visitor == null}" th:text="${session.visitor.nickname}" class="item teal"><h4 class="ui pink header item">用户登录</h4></a>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/logout}" th:unless="${session.visitor == null}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+            <div class="right m-item m-mobile-hide menu">
+                <a href="#" th:href="@{/admin}" th:if="${session.user == null}" class="item teal"><h4 class="ui purple header item">管理员登陆</h4></a>
+                <div class="ui dropdown  item">
+                    <img src="../static/images/chopper.jpg" th:unless="${session.user == null}" th:src="${session.user.avatar}"  class="image" style="border-radius:50%; ">
+                    <div class="text">
+                        <a href="#" th:href="@{/admin/toAdminIndex}" th:unless="${session.user == null}" th:text="${session.user.nickname}" class="item teal"><h4 class="ui purple header item">管理员登陆</h4></a>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+<!--            <div class="ui item">-->
+<!--                <div class="menu">-->
+<!--                    <a href="#" th:href="@{/admin}" class="item teal" style="color: #6262FF">管理员</a>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+
+<!--底部footer-->
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wepay.jpg" th:src="@{/images/wepay.jpg}"  class="ui rounded image" alt="" style="width: 690px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced "><<----我的微信</h4>
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/blue2.png" th:src="@{/images/blue2.png}"  class="ui rounded image" alt="" style="width: 350px">
+                    </div>
+                </div>
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">我的支付宝---->></h4>
+            </div>
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../static/images/alipay.jpg" th:src="@{/images/alipay.jpg}"  class="ui rounded image" alt="" >
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="seven wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/dibu1.png" th:src="@{/images/dibu1.png}"  class="ui rounded image" alt="" style="width: 400px">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <div style="color: #F08047;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced">我的主页已营业：<span id="htmer_time" class="item m-text-thin"></span> (*๓´╰╯`๓)</div>
+<!--        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2016 - 2017 Lirenmi Designed by Lirenmi</p>-->
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">见底啦！</p>
+    </div>
+
+</footer>
+
+<th:block th:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+    <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+    <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+</th:block>
+
+
+
+    <script>
+        // 运行时间统计
+        function secondToDate(second) {
+            if (!second) {
+                return 0;
+            }
+            var time = new Array(0, 0, 0, 0, 0);
+            if (second >= 365 * 24 * 3600) {
+                time[0] = parseInt(second / (365 * 24 * 3600));
+                second %= 365 * 24 * 3600;
+            }
+            if (second >= 24 * 3600) {
+                time[1] = parseInt(second / (24 * 3600));
+                second %= 24 * 3600;
+            }
+            if (second >= 3600) {
+                time[2] = parseInt(second / 3600);
+                second %= 3600;
+            }
+            if (second >= 60) {
+                time[3] = parseInt(second / 60);
+                second %= 60;
+            }
+            if (second > 0) {
+                time[4] = second;
+            }
+            return time;
+        }
+        function setTime() {
+            /*此处为网站的创建时间*/
+            var create_time = Math.round(new Date(Date.UTC(2020, 07, 30, 00, 00, 00)).getTime() / 1000);
+            var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+            currentTime = secondToDate((timestamp - create_time));
+            currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+                + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+                + '秒';
+            document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+        }
+        setInterval(setTime, 1000);
+
+    </script>
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+        on : 'hover'
+    });
+
+</script>
+</body>
+</html>

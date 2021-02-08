@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
+    <div class="ur container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="ui middle aligned center aligned grid">
+                <div class="column">
+                    <h2 class="ui purple image header">
+                        <img src="../static/images/visitor.jpg"  th:src="@{/images/visitor.jpg}"  class="image" style="width:100px; height:100px; border-radius:50%; ">
+                        <div class="content">
+                            用户注册
+                        </div>
+                    </h2>
+                    <form class="ui large form" method="post" action="#" th:action="@{/register}">
+                        <div class="ui stacked segment">
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="user icon"></i>
+                                    <input type="text" name="visitorName" placeholder="用户名">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="lock icon"></i>
+                                    <input type="password" name="password" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="lock icon"></i>
+                                    <input type="text" name="nickname" placeholder="昵称">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="lock icon"></i>
+                                    <input type="text" name="avatar" placeholder="头像地址">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="lock icon"></i>
+                                    <input type="text" name="email" placeholder="邮箱">
+                                </div>
+                            </div>
+<!--                            <div class="field">-->
+<!--                                <div class="ui left icon input">-->
+<!--                                    <i class="lock icon"></i>-->
+<!--                                    <input type="password" name="password" placeholder="Password">-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <button class="ui fluid large purple submit button">注      册</button>
+                        </div>
+
+                        <div class="ui error mini message"></div>
+                        <div class="ui mini negative message" th:unless="${#strings.isEmpty(visitorRegisterMessage)}" th:text="${visitorRegisterMessage}">用户名已存在</div>
+
+                    </form>
+                    <button class="ui fluid large purple submit button"><a href="#" th:href="@{/}" style="color: white">返回首页</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+    $('.ui.form').form({
+        fields : {
+            visitorName : {
+                identifier: 'visitorName',
+                rules: [{
+                    type : 'empty',
+                    prompt: '请输入用户名'
+                }]
+            },
+            password : {
+                identifier: 'password',
+                rules: [{
+                    type : 'empty',
+                    prompt: '请输入密码'
+                }]
+            },
+            nickname : {
+                identifier: 'nickname',
+                rules: [{
+                    type : 'empty',
+                    prompt: '请输入昵称'
+                }]
+            },
+            // avatar : {
+            //     identifier: 'avatar',
+            //     rules: [{
+            //         type : 'empty',
+            //         prompt: '请输入头像地址'
+            //     }]
+            // },
+            email : {
+                identifier: 'email',
+                rules: [{
+                    type : 'empty',
+                    prompt: '请输入邮箱'
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>

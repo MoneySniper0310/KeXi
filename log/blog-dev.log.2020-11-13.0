@@ -1,0 +1,46 @@
+2020-11-13 22:36:44.366  INFO 22172 --- [main] com.wjh.blog.BlogApplicationTests        : Starting BlogApplicationTests on DESKTOP-JC6BHN3 with PID 22172 (started by T500 in D:\IntelliJ_proj\blog)
+2020-11-13 22:36:44.372 DEBUG 22172 --- [main] com.wjh.blog.BlogApplicationTests        : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-13 22:36:44.373  INFO 22172 --- [main] com.wjh.blog.BlogApplicationTests        : The following profiles are active: dev
+2020-11-13 22:36:54.733  INFO 22172 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-13 22:36:55.028  INFO 22172 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-11-13 22:36:55.931  INFO 22172 --- [main] com.wjh.blog.BlogApplicationTests        : Started BlogApplicationTests in 15.822 seconds (JVM running for 17.9)
+2020-11-13 22:36:56.583  INFO 22172 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-13 22:41:19.911  INFO 24348 --- [main] com.wjh.blog.BlogApplication             : Starting BlogApplication v0.0.1-SNAPSHOT on DESKTOP-JC6BHN3 with PID 24348 (D:\IntelliJ_proj\blog\blog-0.0.1-SNAPSHOT.jar started by T500 in D:\IntelliJ_proj\blog)
+2020-11-13 22:41:19.915 DEBUG 24348 --- [main] com.wjh.blog.BlogApplication             : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-11-13 22:41:19.916  INFO 24348 --- [main] com.wjh.blog.BlogApplication             : The following profiles are active: dev
+2020-11-13 22:41:25.753  INFO 24348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 22:41:25.778  INFO 24348 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 22:41:25.779  INFO 24348 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-13 22:41:25.990  INFO 24348 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 22:41:25.991  INFO 24348 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5930 ms
+2020-11-13 22:41:28.203  INFO 24348 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-13 22:41:28.488  INFO 24348 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-11-13 22:41:29.496  INFO 24348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-13 22:41:29.529  INFO 24348 --- [main] com.wjh.blog.BlogApplication             : Started BlogApplication in 10.978 seconds (JVM running for 11.987)
+2020-11-13 22:41:29.703  INFO 24348 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-13 22:41:29.704  INFO 24348 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-11-13 22:41:29.742  INFO 24348 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 38 ms
+2020-11-13 22:41:53.642  INFO 24348 --- [http-nio-8080-exec-3] com.wjh.blog.aspect.LogAspect            : Request : {url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.wjh.blog.controller.indexController.index', args=[{}, 1]}
+2020-11-13 22:41:53.671  INFO 24348 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-11-13 22:41:57.640  INFO 24348 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-11-13 22:41:57.770 DEBUG 24348 --- [http-nio-8080-exec-3] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-11-13 22:41:57.821 DEBUG 24348 --- [http-nio-8080-exec-3] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==> Parameters: 
+2020-11-13 22:42:03.033 DEBUG 24348 --- [http-nio-8080-exec-3] c.w.b.m.B.getAllFirstPageBlog_COUNT      : <==      Total: 1
+2020-11-13 22:42:03.041 DEBUG 24348 --- [http-nio-8080-exec-3] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name, u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-11-13 22:42:03.043 DEBUG 24348 --- [http-nio-8080-exec-3] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==> Parameters: 5(Integer)
+2020-11-13 22:42:03.252 DEBUG 24348 --- [http-nio-8080-exec-3] c.w.b.m.BlogMapper.getAllFirstPageBlog   : <==      Total: 5
+2020-11-13 22:42:03.343 DEBUG 24348 --- [http-nio-8080-exec-3] c.wjh.blog.mapper.TypeMapper.getAllType  : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title,b.type_id from blog.t_type t,blog.t_blog b where t.id = b.type_id 
+2020-11-13 22:42:03.344 DEBUG 24348 --- [http-nio-8080-exec-3] c.wjh.blog.mapper.TypeMapper.getAllType  : ==> Parameters: 
+2020-11-13 22:42:03.358 DEBUG 24348 --- [http-nio-8080-exec-3] c.wjh.blog.mapper.TypeMapper.getAllType  : <==      Total: 12
+2020-11-13 22:42:03.364 DEBUG 24348 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TagMapper.getAllTag  : ==>  Preparing: select t.id tid,t.name,b.id bid,b.title from blog.t_tag t,blog.t_blog b, blog.t_blog_tags bt where t.id = bt.tag_id and b.id = bt.blog_id 
+2020-11-13 22:42:03.365 DEBUG 24348 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TagMapper.getAllTag  : ==> Parameters: 
+2020-11-13 22:42:03.656 DEBUG 24348 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TagMapper.getAllTag  : <==      Total: 18
+2020-11-13 22:42:03.662 DEBUG 24348 --- [http-nio-8080-exec-3] c.w.b.m.BlogMapper.getRecommendedBlog    : ==>  Preparing: select id,title,recommend from blog.t_blog where recommend = true; 
+2020-11-13 22:42:03.663 DEBUG 24348 --- [http-nio-8080-exec-3] c.w.b.m.BlogMapper.getRecommendedBlog    : ==> Parameters: 
+2020-11-13 22:42:03.690 DEBUG 24348 --- [http-nio-8080-exec-3] c.w.b.m.BlogMapper.getRecommendedBlog    : <==      Total: 12
+2020-11-13 22:42:03.703  INFO 24348 --- [http-nio-8080-exec-3] com.wjh.blog.aspect.LogAspect            : Result : index
+2020-11-13 22:42:03.703  INFO 24348 --- [http-nio-8080-exec-3] com.wjh.blog.aspect.LogAspect            : --------doAfterReturning--------
+2020-11-13 22:42:03.704  INFO 24348 --- [http-nio-8080-exec-3] com.wjh.blog.aspect.LogAspect            : --------doAfter--------
+2020-11-13 22:56:45.326  INFO 24348 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-13 22:56:45.328  INFO 24348 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-11-13 22:56:45.388  INFO 24348 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

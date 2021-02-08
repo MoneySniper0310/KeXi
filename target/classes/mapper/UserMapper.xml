@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjh.blog.mapper.UserMapper">
+
+<!--    <resultMap type="com.wjh.blog.entity.User" id="BaseResultMap">-->
+<!--        &lt;!&ndash;-->
+<!--             column:数据库中表的字段-->
+<!--             property：数据库中表所有映射的实体类javaBean中的属性名-->
+<!--         &ndash;&gt;-->
+<!--        <result column="username" property="username"/>-->
+<!--        <result column="creat_time" property="creatTime"/>-->
+<!--        <result column="update_time" property="updateTime"/>-->
+<!--        <result column="id" property="id"/>-->
+<!--        <result column="avatar" property="avatar"/>-->
+<!--        <result column="email" property="email"/>-->
+<!--        <result column="nickname" property="nickname"/>-->
+<!--        <result column="password" property="password"/>-->
+<!--        <result column="type" property="type"/>-->
+<!--    </resultMap>-->
+
+<!--    <sql id="Base_Column_List">-->
+<!--    id, avatar, creat_time, email, nickname, password, `type`, update_time, username-->
+<!--    </sql>-->
+
+    <!--sql语句-->
+    <select id="findByUsernameAndPassword" resultType="com.wjh.blog.entity.User">
+        SELECT *
+        FROM t_user
+        WHERE username=#{username} AND password=#{password}
+    </select>
+</mapper>

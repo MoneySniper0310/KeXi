@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjh.blog.mapper.VisitorMapper">
+
+    <!--sql语句-->
+    <select id="findByVisitorNameAndPassword" resultType="com.wjh.blog.entity.Visitor">
+        SELECT *
+        FROM t_visitor
+        WHERE visitor_name=#{visitorName} AND password=#{password}
+    </select>
+
+    <select id="findByVisitorName" resultType="com.wjh.blog.entity.Visitor">
+        SELECT visitor_name
+        FROM t_visitor
+        WHERE visitor_name=#{visitorName}
+    </select>
+
+    <insert id="addVisitor" parameterType="com.wjh.blog.entity.Visitor">
+		insert into blog.t_visitor (visitor_name,password,nickname,email,avatar)
+        values (#{visitorName},#{password},#{nickname},#{email},#{avatar});
+    </insert>
+</mapper>

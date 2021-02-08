@@ -1,0 +1,389 @@
+2020-10-28 14:07:30.005  INFO 6340 --- [restartedMain] com.wjh.blog.BlogApplication             : Starting BlogApplication on DESKTOP-JC6BHN3 with PID 6340 (D:\IntelliJ_proj\blog\target\classes started by T500 in D:\IntelliJ_proj\blog)
+2020-10-28 14:07:30.025 DEBUG 6340 --- [restartedMain] com.wjh.blog.BlogApplication             : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-28 14:07:30.026  INFO 6340 --- [restartedMain] com.wjh.blog.BlogApplication             : The following profiles are active: dev
+2020-10-28 14:07:30.095  INFO 6340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-10-28 14:07:30.111  INFO 6340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-10-28 14:07:32.782  INFO 6340 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-28 14:07:32.792  INFO 6340 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-28 14:07:32.792  INFO 6340 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-28 14:07:32.942  INFO 6340 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-28 14:07:32.943  INFO 6340 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2831 ms
+2020-10-28 14:07:33.768  INFO 6340 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-28 14:07:33.904  INFO 6340 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-28 14:07:34.618  INFO 6340 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-28 14:07:34.667  INFO 6340 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-28 14:07:34.680  INFO 6340 --- [restartedMain] com.wjh.blog.BlogApplication             : Started BlogApplication in 5.487 seconds (JVM running for 9.256)
+2020-10-28 14:07:40.865  INFO 6340 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-28 14:07:40.866  INFO 6340 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-28 14:07:40.889  INFO 6340 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 23 ms
+2020-10-28 14:07:40.925  INFO 6340 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : Request : {url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.wjh.blog.controller.indexController.index', args=[{}, 1]}
+2020-10-28 14:07:40.948  INFO 6340 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-28 14:07:43.372  INFO 6340 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-28 14:07:43.431 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-10-28 14:07:43.456 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==> Parameters: 
+2020-10-28 14:07:44.546  INFO 6340 --- [http-nio-8080-exec-2] com.wjh.blog.aspect.LogAspect            : Request : {url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.wjh.blog.controller.indexController.index', args=[{}, 1]}
+2020-10-28 14:07:44.578 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-10-28 14:07:44.579 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==> Parameters: 
+2020-10-28 14:07:45.718 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : <==      Total: 1
+2020-10-28 14:07:45.718 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.B.getAllFirstPageBlog_COUNT      : <==      Total: 1
+2020-10-28 14:07:45.725 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name, u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-10-28 14:07:45.725 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name, u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-10-28 14:07:45.726 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==> Parameters: 5(Integer)
+2020-10-28 14:07:45.726 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==> Parameters: 5(Integer)
+2020-10-28 14:07:45.764 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : <==      Total: 5
+2020-10-28 14:07:45.765 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.BlogMapper.getAllFirstPageBlog   : <==      Total: 5
+2020-10-28 14:07:45.776 DEBUG 6340 --- [http-nio-8080-exec-2] c.wjh.blog.mapper.TypeMapper.getAllType  : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title,b.type_id from blog.t_type t,blog.t_blog b where t.id = b.type_id 
+2020-10-28 14:07:45.776 DEBUG 6340 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title,b.type_id from blog.t_type t,blog.t_blog b where t.id = b.type_id 
+2020-10-28 14:07:45.777 DEBUG 6340 --- [http-nio-8080-exec-2] c.wjh.blog.mapper.TypeMapper.getAllType  : ==> Parameters: 
+2020-10-28 14:07:45.777 DEBUG 6340 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : ==> Parameters: 
+2020-10-28 14:07:45.796 DEBUG 6340 --- [http-nio-8080-exec-2] c.wjh.blog.mapper.TypeMapper.getAllType  : <==      Total: 10
+2020-10-28 14:07:45.797 DEBUG 6340 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : <==      Total: 10
+2020-10-28 14:07:45.801 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.getAllTag  : ==>  Preparing: select t.id tid,t.name,b.id bid,b.title from blog.t_tag t,blog.t_blog b, blog.t_blog_tags bt where t.id = bt.tag_id and b.id = bt.blog_id 
+2020-10-28 14:07:45.801 DEBUG 6340 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : ==>  Preparing: select t.id tid,t.name,b.id bid,b.title from blog.t_tag t,blog.t_blog b, blog.t_blog_tags bt where t.id = bt.tag_id and b.id = bt.blog_id 
+2020-10-28 14:07:45.801 DEBUG 6340 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : ==> Parameters: 
+2020-10-28 14:07:45.801 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.getAllTag  : ==> Parameters: 
+2020-10-28 14:07:45.870 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.getAllTag  : <==      Total: 15
+2020-10-28 14:07:45.871 DEBUG 6340 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : <==      Total: 15
+2020-10-28 14:07:45.872 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.BlogMapper.getRecommendedBlog    : ==>  Preparing: select id,title,recommend from blog.t_blog where recommend = true; 
+2020-10-28 14:07:45.873 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.BlogMapper.getRecommendedBlog    : ==> Parameters: 
+2020-10-28 14:07:45.873 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : ==>  Preparing: select id,title,recommend from blog.t_blog where recommend = true; 
+2020-10-28 14:07:45.874 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : ==> Parameters: 
+2020-10-28 14:07:45.905 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.BlogMapper.getRecommendedBlog    : <==      Total: 10
+2020-10-28 14:07:45.905 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : <==      Total: 10
+2020-10-28 14:07:45.908  INFO 6340 --- [http-nio-8080-exec-2] com.wjh.blog.aspect.LogAspect            : Result : index
+2020-10-28 14:07:45.908  INFO 6340 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : Result : index
+2020-10-28 14:07:45.908  INFO 6340 --- [http-nio-8080-exec-2] com.wjh.blog.aspect.LogAspect            : --------doAfterReturning--------
+2020-10-28 14:07:45.908  INFO 6340 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : --------doAfterReturning--------
+2020-10-28 14:07:45.908  INFO 6340 --- [http-nio-8080-exec-2] com.wjh.blog.aspect.LogAspect            : --------doAfter--------
+2020-10-28 14:07:45.908  INFO 6340 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : --------doAfter--------
+2020-10-28 14:07:54.556  WARN 6340 --- [http-nio-8080-exec-7] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,348] milliseconds.
+2020-10-28 14:07:54.563 DEBUG 6340 --- [http-nio-8080-exec-7] c.w.b.m.U.findByUsernameAndPassword      : ==>  Preparing: SELECT * FROM t_user WHERE username=? AND password=? 
+2020-10-28 14:07:54.563 DEBUG 6340 --- [http-nio-8080-exec-7] c.w.b.m.U.findByUsernameAndPassword      : ==> Parameters: wangjinghao(String), e10adc3949ba59abbe56e057f20f883e(String)
+2020-10-28 14:07:54.614 DEBUG 6340 --- [http-nio-8080-exec-7] c.w.b.m.U.findByUsernameAndPassword      : <==      Total: 1
+2020-10-28 14:07:57.854 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.B.getAllBlogQuery_COUNT          : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id 
+2020-10-28 14:07:57.856 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.B.getAllBlogQuery_COUNT          : ==> Parameters: 
+2020-10-28 14:07:57.878 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.m.B.getAllBlogQuery_COUNT          : <==      Total: 1
+2020-10-28 14:07:57.879 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==>  Preparing: select b.id,b.title,b.update_time,b.recommend,b.type_id,t.id,t.name from blog.t_blog b left outer join blog.t_type t on b.type_id = t.id order by b.update_time desc LIMIT ? 
+2020-10-28 14:07:57.879 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==> Parameters: 5(Integer)
+2020-10-28 14:07:57.912 DEBUG 6340 --- [http-nio-8080-exec-2] c.w.b.mapper.BlogMapper.getAllBlogQuery  : <==      Total: 5
+2020-10-28 14:07:57.919 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TypeMapper.listType  : ==>  Preparing: select * from t_type 
+2020-10-28 14:07:57.919 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TypeMapper.listType  : ==> Parameters: 
+2020-10-28 14:07:57.921 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TypeMapper.listType  : <==      Total: 6
+2020-10-28 14:07:57.923 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.listTag    : ==>  Preparing: select * from t_tag 
+2020-10-28 14:07:57.923 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.listTag    : ==> Parameters: 
+2020-10-28 14:07:57.925 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.listTag    : <==      Total: 8
+2020-10-28 14:08:00.478 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TypeMapper.listType  : ==>  Preparing: select * from t_type 
+2020-10-28 14:08:00.480 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TypeMapper.listType  : ==> Parameters: 
+2020-10-28 14:08:00.484 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TypeMapper.listType  : <==      Total: 6
+2020-10-28 14:08:00.486 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.listTag    : ==>  Preparing: select * from t_tag 
+2020-10-28 14:08:00.487 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.listTag    : ==> Parameters: 
+2020-10-28 14:08:00.489 DEBUG 6340 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.listTag    : <==      Total: 8
+2020-10-28 14:22:41.840 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TypeMapper.getType   : ==>  Preparing: SELECT * FROM t_type WHERE id=? 
+2020-10-28 14:22:41.841 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TypeMapper.getType   : ==> Parameters: 3(Long)
+2020-10-28 14:22:41.933 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TypeMapper.getType   : <==      Total: 1
+2020-10-28 14:22:41.953 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.getTag     : ==>  Preparing: select * from blog.t_tag where id = ? 
+2020-10-28 14:22:41.953 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.getTag     : ==> Parameters: 2(Long)
+2020-10-28 14:22:41.976 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.getTag     : <==      Total: 1
+2020-10-28 14:22:41.977 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.getTag     : ==>  Preparing: select * from blog.t_tag where id = ? 
+2020-10-28 14:22:41.977 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.getTag     : ==> Parameters: 5(Long)
+2020-10-28 14:22:41.979 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.getTag     : <==      Total: 1
+2020-10-28 14:22:41.981 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.BlogMapper.saveBlog  : ==>  Preparing: insert into blog.t_blog (id,title, content, first_picture, flag, views, appreciation, share_statement, commentabled,published, recommend, create_time, update_time, type_id,tag_ids, user_id, description) values (?,?,?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?); 
+2020-10-28 14:22:41.984 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.BlogMapper.saveBlog  : ==> Parameters: null, HashMap头插法引起死循环(String), 默认hashmap大小是16.当数据过大时，毫无疑问，hashmap需要扩容去支持存放更多的数据。
+源码如下 ——–Put一个Key,Value对到Hash表中：
+```java
+public V put(K key, V value)
+{
+    ......
+    //计算Hash值
+    int hash = hash(key.hashCode());
+    int i = indexFor(hash, table.length);
+    //各种校验吧
+    for (Entry<K,V> e = table[i]; e != null; e = e.next) {
+        Object k;
+        if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
+            V oldValue = e.value;
+            e.value = value;
+            e.recordAccess(this);
+            return oldValue;
+        }
+    }
+    modCount++;
+    //该key不存在，需要增加一个结点
+    addEntry(hash, key, value, i);
+    return null;
+}
+```
+
+这里添加一个节点需要检查是否超出容量，出现了一个负载因子。
+```java
+void addEntry(int hash, K key, V value, int bucketIndex)
+{
+    Entry<K,V> e = table[bucketIndex];
+    table[bucketIndex] = new Entry<K,V>(hash, key, value, e);
+    //查看当前的size是否超过了我们设定的阈值threshold，如果超过，需要resize
+    if (size++ >= threshold)
+        resize(2 * table.length);//扩容都是2倍2倍的来的，
+}
+```
+
+既然新建了一个更大尺寸的hash表，然后把数据从老的Hash表中迁移到新的Hash表中。
+```java
+void resize(int newCapacity)
+{
+    Entry[] oldTable = table;
+    int oldCapacity = oldTable.length;
+    ......
+    //创建一个新的Hash Table
+    Entry[] newTable = new Entry[newCapacity];
+    //将Old Hash Table上的数据迁移到New Hash Table上
+    transfer(newTable);
+    table = newTable;
+    threshold = (int)(newCapacity * loadFactor);
+}
+```
+
+#### 重点在这里面的transfer()!
+```java
+void transfer(Entry[] newTable)
+{
+    Entry[] src = table;
+    int newCapacity = newTable.length;
+    //下面这段代码的意思是：
+    //  从OldTable里摘一个元素出来，然后放到NewTable中
+    for (int j = 0; j < src.length; j++) {
+        Entry<K,V> e = src[j];
+        if (e != null) {
+            src[j] = null;
+            do {
+                Entry<K,V> next = e.next;
+                int i = indexFor(e.hash, newCapacity);
+                e.next = newTable[i];
+                newTable[i] = e;
+                e = next;
+            } while (e != null);
+        }
+    }
+}
+```
+
+do循环里面的是最能说明问题的 
+当只有一个线程的时候：
+![](https://img-blog.csdn.net/2018091417411137?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW55aW1pbm5hbmppbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+接下来的三个步骤是Hash表 扩容变成4，然后所有的
+```java
+do {
+    Entry<K,V> next = e.next; // <--假设线程一执行到这里就被调度挂起了
+    int i = indexFor(e.hash, newCapacity);
+    e.next = newTable[i];
+    newTable[i] = e;
+    e = next;
+} while (e != null);
+```
+而我们的线程二执行完成了。于是我们有下面的这个样子。
+![](https://img-blog.csdn.net/20180914174758611?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW55aW1pbm5hbmppbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+注意，因为Thread1的 e 指向了key(3)，而next指向了key(7)，其在线程二rehash后，指向了线程二重组后的链表。我们可以看到链表的顺序被反转后。 
+这里的意思是线程1这会还没有完全开始扩容，但e和next已经指向了，线程2是正常的扩容的，那这会在3这个位置上，就是7->3这个顺序。 
+然后： 
+2）线程一被调度回来执行。
+
+先是执行 newTalbe[i] = e; 
+然后是e = next，导致了e指向了key(7)，
+而下一次循环的next = e.next导致了next指向了key(3) 
+注意看图里面的线，线程1指向线程2里面的key3.
+![](https://img-blog.csdn.net/20180914175050162?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW55aW1pbm5hbmppbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+回到线程1里面的时候 
+3）一切安好。
+
+线程一接着工作。把key(7)摘下来，放到newTable[i]的第一个，然后把e和next往下移。
+![](https://img-blog.csdn.net/20180914175319712?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW55aW1pbm5hbmppbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+这时候，原来的线程2里面的key7的e和key3的next没了，e=key3,next=null。
+
+4）环形链接出现。 
+当继续执行，需要将key3加回到key7的前面。 
+e.next = newTable[i] 导致 key(3).next 指向了 key(7)
+
+注意：此时的key(7).next 已经指向了key(3)， 环形链表就这样出现了。
+![](https://img-blog.csdn.net/20180914175358793?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW55aW1pbm5hbmppbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+线程2生成的e和next的关系影响到了线程1里面的情况。从而打乱了正常的e和next的链。(String), https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603876224984&di=a7c61423b0728a2c572df3efa424032b&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201807%2F08%2F20180708174919_rmcyg.jpg(String), null, 0(Integer), true(Boolean), false(Boolean), true(Boolean), true(Boolean), true(Boolean), 2020-10-28 14:22:41.981(Timestamp), 2020-10-28 14:22:41.981(Timestamp), 3(Long), 2,5(String), 1(Long), tips(String)
+2020-10-28 14:22:42.437 DEBUG 6340 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.BlogMapper.saveBlog  : <==    Updates: 1
+2020-10-28 14:22:42.439 DEBUG 6340 --- [http-nio-8080-exec-10] c.w.b.mapper.BlogMapper.saveBlogAndTag   : ==>  Preparing: insert into blog.t_blog_tags (tag_id, blog_id) values (?,?); 
+2020-10-28 14:22:42.439 DEBUG 6340 --- [http-nio-8080-exec-10] c.w.b.mapper.BlogMapper.saveBlogAndTag   : ==> Parameters: 2(Long), 1577879724085(Long)
+2020-10-28 14:22:42.461 DEBUG 6340 --- [http-nio-8080-exec-10] c.w.b.mapper.BlogMapper.saveBlogAndTag   : <==    Updates: 1
+2020-10-28 14:22:42.461 DEBUG 6340 --- [http-nio-8080-exec-10] c.w.b.mapper.BlogMapper.saveBlogAndTag   : ==>  Preparing: insert into blog.t_blog_tags (tag_id, blog_id) values (?,?); 
+2020-10-28 14:22:42.462 DEBUG 6340 --- [http-nio-8080-exec-10] c.w.b.mapper.BlogMapper.saveBlogAndTag   : ==> Parameters: 5(Long), 1577879724085(Long)
+2020-10-28 14:22:42.464 DEBUG 6340 --- [http-nio-8080-exec-10] c.w.b.mapper.BlogMapper.saveBlogAndTag   : <==    Updates: 1
+2020-10-28 14:22:42.700 DEBUG 6340 --- [http-nio-8080-exec-4] c.w.b.m.B.getAllBlogQuery_COUNT          : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id 
+2020-10-28 14:22:42.700 DEBUG 6340 --- [http-nio-8080-exec-4] c.w.b.m.B.getAllBlogQuery_COUNT          : ==> Parameters: 
+2020-10-28 14:22:42.794 DEBUG 6340 --- [http-nio-8080-exec-4] c.w.b.m.B.getAllBlogQuery_COUNT          : <==      Total: 1
+2020-10-28 14:22:42.794 DEBUG 6340 --- [http-nio-8080-exec-4] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==>  Preparing: select b.id,b.title,b.update_time,b.recommend,b.type_id,t.id,t.name from blog.t_blog b left outer join blog.t_type t on b.type_id = t.id order by b.update_time desc LIMIT ? 
+2020-10-28 14:22:42.795 DEBUG 6340 --- [http-nio-8080-exec-4] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==> Parameters: 5(Integer)
+2020-10-28 14:22:42.798 DEBUG 6340 --- [http-nio-8080-exec-4] c.w.b.mapper.BlogMapper.getAllBlogQuery  : <==      Total: 5
+2020-10-28 14:22:42.800 DEBUG 6340 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TypeMapper.listType  : ==>  Preparing: select * from t_type 
+2020-10-28 14:22:42.800 DEBUG 6340 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TypeMapper.listType  : ==> Parameters: 
+2020-10-28 14:22:42.802 DEBUG 6340 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TypeMapper.listType  : <==      Total: 6
+2020-10-28 14:22:42.803 DEBUG 6340 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TagMapper.listTag    : ==>  Preparing: select * from t_tag 
+2020-10-28 14:22:42.804 DEBUG 6340 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TagMapper.listTag    : ==> Parameters: 
+2020-10-28 14:22:42.804 DEBUG 6340 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TagMapper.listTag    : <==      Total: 8
+2020-10-28 14:22:44.834  INFO 6340 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : Request : {url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.wjh.blog.controller.indexController.index', args=[{}, 1]}
+2020-10-28 14:22:44.838 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-10-28 14:22:44.838 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==> Parameters: 
+2020-10-28 14:22:44.841 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : <==      Total: 1
+2020-10-28 14:22:44.842 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name, u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-10-28 14:22:44.843 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==> Parameters: 5(Integer)
+2020-10-28 14:22:44.845 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : <==      Total: 5
+2020-10-28 14:22:44.848 DEBUG 6340 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title,b.type_id from blog.t_type t,blog.t_blog b where t.id = b.type_id 
+2020-10-28 14:22:44.848 DEBUG 6340 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : ==> Parameters: 
+2020-10-28 14:22:44.850 DEBUG 6340 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : <==      Total: 11
+2020-10-28 14:22:44.851 DEBUG 6340 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : ==>  Preparing: select t.id tid,t.name,b.id bid,b.title from blog.t_tag t,blog.t_blog b, blog.t_blog_tags bt where t.id = bt.tag_id and b.id = bt.blog_id 
+2020-10-28 14:22:44.851 DEBUG 6340 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : ==> Parameters: 
+2020-10-28 14:22:44.853 DEBUG 6340 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : <==      Total: 17
+2020-10-28 14:22:44.854 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : ==>  Preparing: select id,title,recommend from blog.t_blog where recommend = true; 
+2020-10-28 14:22:44.854 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : ==> Parameters: 
+2020-10-28 14:22:44.855 DEBUG 6340 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : <==      Total: 11
+2020-10-28 14:22:44.856  INFO 6340 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : Result : index
+2020-10-28 14:22:44.856  INFO 6340 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : --------doAfterReturning--------
+2020-10-28 14:22:44.857  INFO 6340 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : --------doAfter--------
+2020-10-28 14:22:49.011  INFO 6340 --- [http-nio-8080-exec-9] com.wjh.blog.aspect.LogAspect            : Request : {url='http://127.0.0.1:8080/blog/1577879724085', ip='127.0.0.1', classMethod='com.wjh.blog.controller.indexController.blog', args=[1577879724085, {}]}
+2020-10-28 14:22:49.015 DEBUG 6340 --- [http-nio-8080-exec-9] c.w.blog.mapper.BlogMapper.getBlogById   : ==>  Preparing: select * from t_blog where id = ?; 
+2020-10-28 14:22:49.015 DEBUG 6340 --- [http-nio-8080-exec-9] c.w.blog.mapper.BlogMapper.getBlogById   : ==> Parameters: 1577879724085(Long)
+2020-10-28 14:22:49.019 DEBUG 6340 --- [http-nio-8080-exec-9] c.w.blog.mapper.BlogMapper.getBlogById   : <==      Total: 1
+2020-10-28 14:22:49.020 DEBUG 6340 --- [http-nio-8080-exec-9] c.w.b.mapper.BlogMapper.updateBlogViews  : ==>  Preparing: update blog.t_blog set title = ?,content = ? , first_picture = ?, flag = ?, views = ?, appreciation = ?, share_statement = ? , commentabled = ? , published = ? , recommend = ?, create_time = ?, update_time = ? ,type_id = ? ,tag_ids = ? ,user_id = ? ,description = ? where id = ?; 
+2020-10-28 14:22:49.022 DEBUG 6340 --- [http-nio-8080-exec-9] c.w.b.mapper.BlogMapper.updateBlogViews  : ==> Parameters: HashMap头插法引起死循环(String), 默认hashmap大小是16.当数据过大时，毫无疑问，hashmap需要扩容去支持存放更多的数据。
+源码如下 ——–Put一个Key,Value对到Hash表中：
+```java
+public V put(K key, V value)
+{
+    ......
+    //计算Hash值
+    int hash = hash(key.hashCode());
+    int i = indexFor(hash, table.length);
+    //各种校验吧
+    for (Entry<K,V> e = table[i]; e != null; e = e.next) {
+        Object k;
+        if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
+            V oldValue = e.value;
+            e.value = value;
+            e.recordAccess(this);
+            return oldValue;
+        }
+    }
+    modCount++;
+    //该key不存在，需要增加一个结点
+    addEntry(hash, key, value, i);
+    return null;
+}
+```
+
+这里添加一个节点需要检查是否超出容量，出现了一个负载因子。
+```java
+void addEntry(int hash, K key, V value, int bucketIndex)
+{
+    Entry<K,V> e = table[bucketIndex];
+    table[bucketIndex] = new Entry<K,V>(hash, key, value, e);
+    //查看当前的size是否超过了我们设定的阈值threshold，如果超过，需要resize
+    if (size++ >= threshold)
+        resize(2 * table.length);//扩容都是2倍2倍的来的，
+}
+```
+
+既然新建了一个更大尺寸的hash表，然后把数据从老的Hash表中迁移到新的Hash表中。
+```java
+void resize(int newCapacity)
+{
+    Entry[] oldTable = table;
+    int oldCapacity = oldTable.length;
+    ......
+    //创建一个新的Hash Table
+    Entry[] newTable = new Entry[newCapacity];
+    //将Old Hash Table上的数据迁移到New Hash Table上
+    transfer(newTable);
+    table = newTable;
+    threshold = (int)(newCapacity * loadFactor);
+}
+```
+
+#### 重点在这里面的transfer()!
+```java
+void transfer(Entry[] newTable)
+{
+    Entry[] src = table;
+    int newCapacity = newTable.length;
+    //下面这段代码的意思是：
+    //  从OldTable里摘一个元素出来，然后放到NewTable中
+    for (int j = 0; j < src.length; j++) {
+        Entry<K,V> e = src[j];
+        if (e != null) {
+            src[j] = null;
+            do {
+                Entry<K,V> next = e.next;
+                int i = indexFor(e.hash, newCapacity);
+                e.next = newTable[i];
+                newTable[i] = e;
+                e = next;
+            } while (e != null);
+        }
+    }
+}
+```
+
+do循环里面的是最能说明问题的 
+当只有一个线程的时候：
+![](https://img-blog.csdn.net/2018091417411137?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW55aW1pbm5hbmppbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+接下来的三个步骤是Hash表 扩容变成4，然后所有的
+```java
+do {
+    Entry<K,V> next = e.next; // <--假设线程一执行到这里就被调度挂起了
+    int i = indexFor(e.hash, newCapacity);
+    e.next = newTable[i];
+    newTable[i] = e;
+    e = next;
+} while (e != null);
+```
+而我们的线程二执行完成了。于是我们有下面的这个样子。
+![](https://img-blog.csdn.net/20180914174758611?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW55aW1pbm5hbmppbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+注意，因为Thread1的 e 指向了key(3)，而next指向了key(7)，其在线程二rehash后，指向了线程二重组后的链表。我们可以看到链表的顺序被反转后。 
+这里的意思是线程1这会还没有完全开始扩容，但e和next已经指向了，线程2是正常的扩容的，那这会在3这个位置上，就是7->3这个顺序。 
+然后： 
+2）线程一被调度回来执行。
+
+先是执行 newTalbe[i] = e; 
+然后是e = next，导致了e指向了key(7)，
+而下一次循环的next = e.next导致了next指向了key(3) 
+注意看图里面的线，线程1指向线程2里面的key3.
+![](https://img-blog.csdn.net/20180914175050162?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW55aW1pbm5hbmppbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+回到线程1里面的时候 
+3）一切安好。
+
+线程一接着工作。把key(7)摘下来，放到newTable[i]的第一个，然后把e和next往下移。
+![](https://img-blog.csdn.net/20180914175319712?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW55aW1pbm5hbmppbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+这时候，原来的线程2里面的key7的e和key3的next没了，e=key3,next=null。
+
+4）环形链接出现。 
+当继续执行，需要将key3加回到key7的前面。 
+e.next = newTable[i] 导致 key(3).next 指向了 key(7)
+
+注意：此时的key(7).next 已经指向了key(3)， 环形链表就这样出现了。
+![](https://img-blog.csdn.net/20180914175358793?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW55aW1pbm5hbmppbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+线程2生成的e和next的关系影响到了线程1里面的情况。从而打乱了正常的e和next的链。(String), https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603876224984&di=a7c61423b0728a2c572df3efa424032b&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201807%2F08%2F20180708174919_rmcyg.jpg(String), null, 1(Integer), true(Boolean), false(Boolean), true(Boolean), true(Boolean), true(Boolean), 2020-10-28 14:22:42.0(Timestamp), 2020-10-28 14:22:42.0(Timestamp), 3(Long), 2,5(String), 1(Long), tips(String), 1577879724085(Long)
+2020-10-28 14:22:49.123 DEBUG 6340 --- [http-nio-8080-exec-9] c.w.b.mapper.BlogMapper.updateBlogViews  : <==    Updates: 1
+2020-10-28 14:22:49.123 DEBUG 6340 --- [http-nio-8080-exec-9] c.w.b.mapper.BlogMapper.getDetailedBlog  : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar, t.id tid ,t.name from blog.t_blog b,blog.t_user u,blog.t_tag t,blog.t_blog_tags tb where b.user_id = u.id and tb.blog_id = b.id and tb.tag_id = t.id and b.id = ? 
+2020-10-28 14:22:49.124 DEBUG 6340 --- [http-nio-8080-exec-9] c.w.b.mapper.BlogMapper.getDetailedBlog  : ==> Parameters: 1577879724085(Long)
+2020-10-28 14:22:49.126 DEBUG 6340 --- [http-nio-8080-exec-9] c.w.b.mapper.BlogMapper.getDetailedBlog  : <==      Total: 2
+2020-10-28 14:22:49.335  INFO 6340 --- [http-nio-8080-exec-9] com.wjh.blog.aspect.LogAspect            : Result : blog
+2020-10-28 14:22:49.335  INFO 6340 --- [http-nio-8080-exec-9] com.wjh.blog.aspect.LogAspect            : --------doAfterReturning--------
+2020-10-28 14:22:49.336  INFO 6340 --- [http-nio-8080-exec-9] com.wjh.blog.aspect.LogAspect            : --------doAfter--------
+2020-10-28 14:22:50.407  INFO 6340 --- [http-nio-8080-exec-10] com.wjh.blog.aspect.LogAspect            : Request : {url='http://127.0.0.1:8080/comments/1577879724085', ip='127.0.0.1', classMethod='com.wjh.blog.controller.CommentController.comments', args=[1577879724085, {}]}
+2020-10-28 14:22:50.415 DEBUG 6340 --- [http-nio-8080-exec-10] c.w.b.m.C.findByBlogIdParentIdNull       : ==>  Preparing: select * from blog.t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-10-28 14:22:50.417 DEBUG 6340 --- [http-nio-8080-exec-10] c.w.b.m.C.findByBlogIdParentIdNull       : ==> Parameters: 1577879724085(Long), -1(Long)
+2020-10-28 14:22:50.654 DEBUG 6340 --- [http-nio-8080-exec-10] c.w.b.m.C.findByBlogIdParentIdNull       : <==      Total: 0
+2020-10-28 14:22:50.656  INFO 6340 --- [http-nio-8080-exec-10] com.wjh.blog.aspect.LogAspect            : Result : blog :: commentList
+2020-10-28 14:22:50.656  INFO 6340 --- [http-nio-8080-exec-10] com.wjh.blog.aspect.LogAspect            : --------doAfterReturning--------
+2020-10-28 14:22:50.656  INFO 6340 --- [http-nio-8080-exec-10] com.wjh.blog.aspect.LogAspect            : --------doAfter--------

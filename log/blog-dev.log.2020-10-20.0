@@ -1,0 +1,231 @@
+2020-10-20 13:56:10.142  INFO 41972 --- [restartedMain] com.wjh.blog.BlogApplication             : Starting BlogApplication on DESKTOP-JC6BHN3 with PID 41972 (D:\IntelliJ_proj\blog\target\classes started by T500 in D:\IntelliJ_proj\blog)
+2020-10-20 13:56:10.149 DEBUG 41972 --- [restartedMain] com.wjh.blog.BlogApplication             : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-20 13:56:10.150  INFO 41972 --- [restartedMain] com.wjh.blog.BlogApplication             : The following profiles are active: dev
+2020-10-20 13:56:10.235  INFO 41972 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-10-20 13:56:10.236  INFO 41972 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-10-20 13:56:13.318  INFO 41972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-20 13:56:13.328  INFO 41972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-20 13:56:13.328  INFO 41972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-20 13:56:13.497  INFO 41972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-20 13:56:13.497  INFO 41972 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3260 ms
+2020-10-20 13:56:14.273  INFO 41972 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-20 13:56:14.426  INFO 41972 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-20 13:56:15.109  INFO 41972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-20 13:56:15.153  INFO 41972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-20 13:56:15.164  INFO 41972 --- [restartedMain] com.wjh.blog.BlogApplication             : Started BlogApplication in 6.107 seconds (JVM running for 9.682)
+2020-10-20 13:56:26.125  INFO 41972 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-20 13:56:26.127  INFO 41972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-20 13:56:26.149  INFO 41972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 21 ms
+2020-10-20 13:56:26.177  INFO 41972 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : Request : {url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.wjh.blog.controller.indexController.index', args=[{}, 1]}
+2020-10-20 13:56:26.195  INFO 41972 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-20 13:56:27.245  INFO 41972 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-20 13:56:27.320 DEBUG 41972 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-10-20 13:56:27.342 DEBUG 41972 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==> Parameters: 
+2020-10-20 13:56:27.553 DEBUG 41972 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : <==      Total: 1
+2020-10-20 13:56:27.559 DEBUG 41972 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name, u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-10-20 13:56:27.560 DEBUG 41972 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==> Parameters: 5(Integer)
+2020-10-20 13:56:27.620 DEBUG 41972 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : <==      Total: 5
+2020-10-20 13:56:27.634 DEBUG 41972 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title,b.type_id from blog.t_type t,blog.t_blog b where t.id = b.type_id 
+2020-10-20 13:56:27.635 DEBUG 41972 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : ==> Parameters: 
+2020-10-20 13:56:27.639 DEBUG 41972 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : <==      Total: 6
+2020-10-20 13:56:27.642 DEBUG 41972 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : ==>  Preparing: select t.id tid,t.name,b.id bid,b.title from blog.t_tag t,blog.t_blog b, blog.t_blog_tags bt where t.id = bt.tag_id and b.id = bt.blog_id 
+2020-10-20 13:56:27.643 DEBUG 41972 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : ==> Parameters: 
+2020-10-20 13:56:27.652 DEBUG 41972 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : <==      Total: 9
+2020-10-20 13:56:27.653 DEBUG 41972 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : ==>  Preparing: select id,title,recommend from blog.t_blog where recommend = true; 
+2020-10-20 13:56:27.653 DEBUG 41972 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : ==> Parameters: 
+2020-10-20 13:56:27.655 DEBUG 41972 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : <==      Total: 6
+2020-10-20 13:56:27.658  INFO 41972 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : Result : index
+2020-10-20 13:56:27.658  INFO 41972 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : --------doAfterReturning--------
+2020-10-20 13:56:27.659  INFO 41972 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : --------doAfter--------
+2020-10-20 13:59:22.137  WARN 41972 --- [http-nio-8080-exec-7] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,259] milliseconds.
+2020-10-20 13:59:22.181 DEBUG 41972 --- [http-nio-8080-exec-7] c.w.b.m.U.findByUsernameAndPassword      : ==>  Preparing: SELECT * FROM t_user WHERE username=? AND password=? 
+2020-10-20 13:59:22.182 DEBUG 41972 --- [http-nio-8080-exec-7] c.w.b.m.U.findByUsernameAndPassword      : ==> Parameters: wangjinghao(String), e10adc3949ba59abbe56e057f20f883e(String)
+2020-10-20 13:59:22.235 DEBUG 41972 --- [http-nio-8080-exec-7] c.w.b.m.U.findByUsernameAndPassword      : <==      Total: 1
+2020-10-20 13:59:24.660 DEBUG 41972 --- [http-nio-8080-exec-10] c.w.b.m.B.getAllBlogQuery_COUNT          : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id 
+2020-10-20 13:59:24.660 DEBUG 41972 --- [http-nio-8080-exec-10] c.w.b.m.B.getAllBlogQuery_COUNT          : ==> Parameters: 
+2020-10-20 13:59:24.667 DEBUG 41972 --- [http-nio-8080-exec-10] c.w.b.m.B.getAllBlogQuery_COUNT          : <==      Total: 1
+2020-10-20 13:59:24.668 DEBUG 41972 --- [http-nio-8080-exec-10] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==>  Preparing: select b.id,b.title,b.update_time,b.recommend,b.type_id,t.id,t.name from blog.t_blog b left outer join blog.t_type t on b.type_id = t.id order by b.update_time desc LIMIT ? 
+2020-10-20 13:59:24.668 DEBUG 41972 --- [http-nio-8080-exec-10] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==> Parameters: 5(Integer)
+2020-10-20 13:59:24.729 DEBUG 41972 --- [http-nio-8080-exec-10] c.w.b.mapper.BlogMapper.getAllBlogQuery  : <==      Total: 5
+2020-10-20 13:59:24.733 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TypeMapper.listType  : ==>  Preparing: select * from t_type 
+2020-10-20 13:59:24.734 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TypeMapper.listType  : ==> Parameters: 
+2020-10-20 13:59:24.738 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TypeMapper.listType  : <==      Total: 6
+2020-10-20 13:59:24.741 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.listTag    : ==>  Preparing: select * from t_tag 
+2020-10-20 13:59:24.742 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.listTag    : ==> Parameters: 
+2020-10-20 13:59:24.746 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.listTag    : <==      Total: 8
+2020-10-20 13:59:27.155 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TypeMapper.listType  : ==>  Preparing: select * from t_type 
+2020-10-20 13:59:27.156 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TypeMapper.listType  : ==> Parameters: 
+2020-10-20 13:59:27.161 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TypeMapper.listType  : <==      Total: 6
+2020-10-20 13:59:27.164 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.listTag    : ==>  Preparing: select * from t_tag 
+2020-10-20 13:59:27.165 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.listTag    : ==> Parameters: 
+2020-10-20 13:59:27.169 DEBUG 41972 --- [http-nio-8080-exec-10] com.wjh.blog.mapper.TagMapper.listTag    : <==      Total: 8
+2020-10-20 14:11:04.550 DEBUG 41972 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TypeMapper.getType   : ==>  Preparing: SELECT * FROM t_type WHERE id=? 
+2020-10-20 14:11:04.551 DEBUG 41972 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TypeMapper.getType   : ==> Parameters: 6(Long)
+2020-10-20 14:11:04.829 DEBUG 41972 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TypeMapper.getType   : <==      Total: 1
+2020-10-20 14:11:04.831 DEBUG 41972 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TagMapper.getTag     : ==>  Preparing: select * from blog.t_tag where id = ? 
+2020-10-20 14:11:04.832 DEBUG 41972 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TagMapper.getTag     : ==> Parameters: 7(Long)
+2020-10-20 14:11:04.833 DEBUG 41972 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TagMapper.getTag     : <==      Total: 1
+2020-10-20 14:11:04.836 DEBUG 41972 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.BlogMapper.saveBlog  : ==>  Preparing: insert into blog.t_blog (id,title, content, first_picture, flag, views, appreciation, share_statement, commentabled,published, recommend, create_time, update_time, type_id,tag_ids, user_id, description) values (?,?,?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?); 
+2020-10-20 14:11:04.840 DEBUG 41972 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.BlogMapper.saveBlog  : ==> Parameters: null, LeetCode60 第k个排列(String), ### 思路:
+**其实可以全排列之后取第k个，但是时间复杂度较高，可以通过计算阶乘来进行剪枝。**
+
+所求排列 一定在叶子结点处得到，进入每一个分支，可以根据已经选定的数的个数，进而计算还未选定的数的个数，然后计算阶乘，就知道这一个分支的 叶子结点 的个数：
+###### 1.如果 kk 大于这一个分支将要产生的叶子结点数，直接跳过这个分支，这个操作叫「剪枝」；
+###### 2.如果 kk 小于等于这一个分支将要产生的叶子结点数，那说明所求的全排列一定在这一个分支将要产生的叶子结点里，需要递归求解。
+
+![](https://pic.leetcode-cn.com/1599273370-WyOYCO-image.png)
+按照思路可以写出代码：
+```java
+class Solution {
+    public String getPermutation(int n, int k) {
+        int[] Jc = new int[n + 1];
+        helper(n, Jc);
+        boolean[] visited = new boolean[n + 1];
+        StringBuilder tmp = new StringBuilder();
+        dfs(n, visited, 0, k, Jc, tmp);
+        return tmp.toString();
+    }
+    public void helper(int n, int[] Jc) {
+        Jc[0] = 1;
+        for (int i = 1; i <= n; i++) {
+            Jc[i] = Jc[i - 1] * i;
+        }
+    }
+    public void dfs(int n, boolean[] visited, int idx, int k, int[] Jc, StringBuilder tmp) {
+        if (idx == n) {
+            return;
+        }
+        int cnt = Jc[n - 1 - idx]; //第一次进入是n - 1
+        for (int i = 1; i <= n; i++) {
+            if (visited[i]) continue;
+            if (cnt < k) {
+                k -= cnt;
+                continue;
+            }
+            visited[i] = true;
+            tmp.append(i);
+            dfs(n, visited, idx + 1, k, Jc, tmp);
+            return;
+        }
+    }
+}
+```(String), https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2470684841,3664336803&fm=26&gp=0.jpg(String), null, 0(Integer), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 2020-10-20 14:11:04.835(Timestamp), 2020-10-20 14:11:04.835(Timestamp), 6(Long), 7(String), 1(Long), leecode 60(String)
+2020-10-20 14:11:05.038 DEBUG 41972 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.BlogMapper.saveBlog  : <==    Updates: 1
+2020-10-20 14:11:05.041 DEBUG 41972 --- [http-nio-8080-exec-3] c.w.b.mapper.BlogMapper.saveBlogAndTag   : ==>  Preparing: insert into blog.t_blog_tags (tag_id, blog_id) values (?,?); 
+2020-10-20 14:11:05.042 DEBUG 41972 --- [http-nio-8080-exec-3] c.w.b.mapper.BlogMapper.saveBlogAndTag   : ==> Parameters: 7(Long), 1577879724081(Long)
+2020-10-20 14:11:05.047 DEBUG 41972 --- [http-nio-8080-exec-3] c.w.b.mapper.BlogMapper.saveBlogAndTag   : <==    Updates: 1
+2020-10-20 14:11:05.251 DEBUG 41972 --- [http-nio-8080-exec-7] c.w.b.m.B.getAllBlogQuery_COUNT          : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id 
+2020-10-20 14:11:05.252 DEBUG 41972 --- [http-nio-8080-exec-7] c.w.b.m.B.getAllBlogQuery_COUNT          : ==> Parameters: 
+2020-10-20 14:11:05.255 DEBUG 41972 --- [http-nio-8080-exec-7] c.w.b.m.B.getAllBlogQuery_COUNT          : <==      Total: 1
+2020-10-20 14:11:05.255 DEBUG 41972 --- [http-nio-8080-exec-7] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==>  Preparing: select b.id,b.title,b.update_time,b.recommend,b.type_id,t.id,t.name from blog.t_blog b left outer join blog.t_type t on b.type_id = t.id order by b.update_time desc LIMIT ? 
+2020-10-20 14:11:05.256 DEBUG 41972 --- [http-nio-8080-exec-7] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==> Parameters: 5(Integer)
+2020-10-20 14:11:05.259 DEBUG 41972 --- [http-nio-8080-exec-7] c.w.b.mapper.BlogMapper.getAllBlogQuery  : <==      Total: 5
+2020-10-20 14:11:05.261 DEBUG 41972 --- [http-nio-8080-exec-7] com.wjh.blog.mapper.TypeMapper.listType  : ==>  Preparing: select * from t_type 
+2020-10-20 14:11:05.261 DEBUG 41972 --- [http-nio-8080-exec-7] com.wjh.blog.mapper.TypeMapper.listType  : ==> Parameters: 
+2020-10-20 14:11:05.263 DEBUG 41972 --- [http-nio-8080-exec-7] com.wjh.blog.mapper.TypeMapper.listType  : <==      Total: 6
+2020-10-20 14:11:05.265 DEBUG 41972 --- [http-nio-8080-exec-7] com.wjh.blog.mapper.TagMapper.listTag    : ==>  Preparing: select * from t_tag 
+2020-10-20 14:11:05.265 DEBUG 41972 --- [http-nio-8080-exec-7] com.wjh.blog.mapper.TagMapper.listTag    : ==> Parameters: 
+2020-10-20 14:11:05.266 DEBUG 41972 --- [http-nio-8080-exec-7] com.wjh.blog.mapper.TagMapper.listTag    : <==      Total: 8
+2020-10-20 21:18:12.450  INFO 40688 --- [restartedMain] com.wjh.blog.BlogApplication             : Starting BlogApplication on DESKTOP-JC6BHN3 with PID 40688 (D:\IntelliJ_proj\blog\target\classes started by T500 in D:\IntelliJ_proj\blog)
+2020-10-20 21:18:12.500 DEBUG 40688 --- [restartedMain] com.wjh.blog.BlogApplication             : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-20 21:18:12.500  INFO 40688 --- [restartedMain] com.wjh.blog.BlogApplication             : The following profiles are active: dev
+2020-10-20 21:18:12.565  INFO 40688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-10-20 21:18:12.565  INFO 40688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-10-20 21:18:15.409  INFO 40688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-20 21:18:15.419  INFO 40688 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-20 21:18:15.419  INFO 40688 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-20 21:18:15.574  INFO 40688 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-20 21:18:15.574  INFO 40688 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2998 ms
+2020-10-20 21:18:16.401  INFO 40688 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-20 21:18:16.494  INFO 40688 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-20 21:18:17.123  INFO 40688 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-20 21:18:17.170  INFO 40688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-20 21:18:17.180  INFO 40688 --- [restartedMain] com.wjh.blog.BlogApplication             : Started BlogApplication in 5.799 seconds (JVM running for 10.089)
+2020-10-20 21:18:23.800  INFO 40688 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-20 21:18:23.801  INFO 40688 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-20 21:18:23.826  INFO 40688 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 24 ms
+2020-10-20 21:18:23.860  INFO 40688 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : Request : {url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.wjh.blog.controller.indexController.index', args=[{}, 1]}
+2020-10-20 21:18:23.886  INFO 40688 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-20 21:18:25.830  INFO 40688 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-20 21:18:25.899 DEBUG 40688 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-10-20 21:18:25.920 DEBUG 40688 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : ==> Parameters: 
+2020-10-20 21:18:26.140 DEBUG 40688 --- [http-nio-8080-exec-1] c.w.b.m.B.getAllFirstPageBlog_COUNT      : <==      Total: 1
+2020-10-20 21:18:26.145 DEBUG 40688 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name, u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-10-20 21:18:26.146 DEBUG 40688 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : ==> Parameters: 5(Integer)
+2020-10-20 21:18:26.211 DEBUG 40688 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getAllFirstPageBlog   : <==      Total: 5
+2020-10-20 21:18:26.227 DEBUG 40688 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title,b.type_id from blog.t_type t,blog.t_blog b where t.id = b.type_id 
+2020-10-20 21:18:26.228 DEBUG 40688 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : ==> Parameters: 
+2020-10-20 21:18:26.238 DEBUG 40688 --- [http-nio-8080-exec-1] c.wjh.blog.mapper.TypeMapper.getAllType  : <==      Total: 7
+2020-10-20 21:18:26.246 DEBUG 40688 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : ==>  Preparing: select t.id tid,t.name,b.id bid,b.title from blog.t_tag t,blog.t_blog b, blog.t_blog_tags bt where t.id = bt.tag_id and b.id = bt.blog_id 
+2020-10-20 21:18:26.247 DEBUG 40688 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : ==> Parameters: 
+2020-10-20 21:18:26.262 DEBUG 40688 --- [http-nio-8080-exec-1] com.wjh.blog.mapper.TagMapper.getAllTag  : <==      Total: 10
+2020-10-20 21:18:26.264 DEBUG 40688 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : ==>  Preparing: select id,title,recommend from blog.t_blog where recommend = true; 
+2020-10-20 21:18:26.264 DEBUG 40688 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : ==> Parameters: 
+2020-10-20 21:18:26.274 DEBUG 40688 --- [http-nio-8080-exec-1] c.w.b.m.BlogMapper.getRecommendedBlog    : <==      Total: 7
+2020-10-20 21:18:26.276  INFO 40688 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : Result : index
+2020-10-20 21:18:26.277  INFO 40688 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : --------doAfterReturning--------
+2020-10-20 21:18:26.277  INFO 40688 --- [http-nio-8080-exec-1] com.wjh.blog.aspect.LogAspect            : --------doAfter--------
+2020-10-20 21:18:34.184  WARN 40688 --- [http-nio-8080-exec-5] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,350] milliseconds.
+2020-10-20 21:18:34.222 DEBUG 40688 --- [http-nio-8080-exec-5] c.w.b.m.U.findByUsernameAndPassword      : ==>  Preparing: SELECT * FROM t_user WHERE username=? AND password=? 
+2020-10-20 21:18:34.223 DEBUG 40688 --- [http-nio-8080-exec-5] c.w.b.m.U.findByUsernameAndPassword      : ==> Parameters: wangjinghao(String), e10adc3949ba59abbe56e057f20f883e(String)
+2020-10-20 21:18:34.293 DEBUG 40688 --- [http-nio-8080-exec-5] c.w.b.m.U.findByUsernameAndPassword      : <==      Total: 1
+2020-10-20 21:18:35.791 DEBUG 40688 --- [http-nio-8080-exec-4] c.w.b.m.B.getAllBlogQuery_COUNT          : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id 
+2020-10-20 21:18:35.791 DEBUG 40688 --- [http-nio-8080-exec-4] c.w.b.m.B.getAllBlogQuery_COUNT          : ==> Parameters: 
+2020-10-20 21:18:35.823 DEBUG 40688 --- [http-nio-8080-exec-4] c.w.b.m.B.getAllBlogQuery_COUNT          : <==      Total: 1
+2020-10-20 21:18:35.824 DEBUG 40688 --- [http-nio-8080-exec-4] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==>  Preparing: select b.id,b.title,b.update_time,b.recommend,b.type_id,t.id,t.name from blog.t_blog b left outer join blog.t_type t on b.type_id = t.id order by b.update_time desc LIMIT ? 
+2020-10-20 21:18:35.824 DEBUG 40688 --- [http-nio-8080-exec-4] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==> Parameters: 5(Integer)
+2020-10-20 21:18:35.915 DEBUG 40688 --- [http-nio-8080-exec-4] c.w.b.mapper.BlogMapper.getAllBlogQuery  : <==      Total: 5
+2020-10-20 21:18:35.919 DEBUG 40688 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TypeMapper.listType  : ==>  Preparing: select * from t_type 
+2020-10-20 21:18:35.919 DEBUG 40688 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TypeMapper.listType  : ==> Parameters: 
+2020-10-20 21:18:35.921 DEBUG 40688 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TypeMapper.listType  : <==      Total: 6
+2020-10-20 21:18:35.924 DEBUG 40688 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TagMapper.listTag    : ==>  Preparing: select * from t_tag 
+2020-10-20 21:18:35.924 DEBUG 40688 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TagMapper.listTag    : ==> Parameters: 
+2020-10-20 21:18:35.926 DEBUG 40688 --- [http-nio-8080-exec-4] com.wjh.blog.mapper.TagMapper.listTag    : <==      Total: 8
+2020-10-20 21:18:37.617 DEBUG 40688 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TypeMapper.listType  : ==>  Preparing: select * from t_type 
+2020-10-20 21:18:37.618 DEBUG 40688 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TypeMapper.listType  : ==> Parameters: 
+2020-10-20 21:18:37.623 DEBUG 40688 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TypeMapper.listType  : <==      Total: 6
+2020-10-20 21:18:37.627 DEBUG 40688 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TagMapper.listTag    : ==>  Preparing: select * from t_tag 
+2020-10-20 21:18:37.627 DEBUG 40688 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TagMapper.listTag    : ==> Parameters: 
+2020-10-20 21:18:37.629 DEBUG 40688 --- [http-nio-8080-exec-3] com.wjh.blog.mapper.TagMapper.listTag    : <==      Total: 8
+2020-10-20 21:24:34.406 DEBUG 40688 --- [http-nio-8080-exec-9] com.wjh.blog.mapper.TypeMapper.getType   : ==>  Preparing: SELECT * FROM t_type WHERE id=? 
+2020-10-20 21:24:34.406 DEBUG 40688 --- [http-nio-8080-exec-9] com.wjh.blog.mapper.TypeMapper.getType   : ==> Parameters: 8(Long)
+2020-10-20 21:24:34.445 DEBUG 40688 --- [http-nio-8080-exec-9] com.wjh.blog.mapper.TypeMapper.getType   : <==      Total: 1
+2020-10-20 21:24:34.448 DEBUG 40688 --- [http-nio-8080-exec-9] com.wjh.blog.mapper.TagMapper.getTag     : ==>  Preparing: select * from blog.t_tag where id = ? 
+2020-10-20 21:24:34.449 DEBUG 40688 --- [http-nio-8080-exec-9] com.wjh.blog.mapper.TagMapper.getTag     : ==> Parameters: 8(Long)
+2020-10-20 21:24:34.450 DEBUG 40688 --- [http-nio-8080-exec-9] com.wjh.blog.mapper.TagMapper.getTag     : <==      Total: 1
+2020-10-20 21:24:34.452 DEBUG 40688 --- [http-nio-8080-exec-9] com.wjh.blog.mapper.BlogMapper.saveBlog  : ==>  Preparing: insert into blog.t_blog (id,title, content, first_picture, flag, views, appreciation, share_statement, commentabled,published, recommend, create_time, update_time, type_id,tag_ids, user_id, description) values (?,?,?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?); 
+2020-10-20 21:24:34.455 DEBUG 40688 --- [http-nio-8080-exec-9] com.wjh.blog.mapper.BlogMapper.saveBlog  : ==> Parameters: null, InnoDB与MyISAM的区别(String), ### 区别：
+
+**1.InnoDB 支持事务，MyISAM 不支持事务。这是 MySQL 将默认存储引擎从 MyISAM 变成 InnoDB 的重要原因之一；
+2.InnoDB 支持外键，而 MyISAM 不支持。对一个包含外键的 InnoDB 表转为 MYISAM 会失败；
+3.InnoDB 是聚集索引，MyISAM 是非聚集索引。聚簇索引的文件存放在主键索引的叶子节点上，因此 InnoDB 必须要有主键，通过主键索引效率很高。但是辅助索引需要两次查询，先查询到主键，然后再通过主键查询到数据。因此，主键不应该过大，因为主键太大，其他索引也都会很大。而 MyISAM 是非聚集索引，数据文件是分离的，索引保存的是数据文件的指针。主键索引和辅助索引是独立的。
+4.InnoDB 不保存表的具体行数，执行 select count(*) from table 时需要全表扫描。而MyISAM 用一个变量保存了整个表的行数，执行上述语句时只需要读出该变量即可，速度很快；
+5.InnoDB 最小的锁粒度是行锁，MyISAM 最小的锁粒度是表锁。一个更新语句会锁住整张表，导致其他查询和更新都会被阻塞，因此并发访问受限。这也是 MySQL 将默认存储引擎从 MyISAM 变成 InnoDB 的重要原因之一；**
+
+### 如何选择：
+**1.是否要支持事务，如果要请选择 InnoDB，如果不需要可以考虑 MyISAM；
+2.如果表中绝大多数都只是读查询，可以考虑 MyISAM，如果既有读写也挺频繁，请使用InnoDB。
+3.系统奔溃后，MyISAM恢复起来更困难，能否接受，不能接受就选 InnoDB； 
+4.MySQL5.5版本开始Innodb已经成为Mysql的默认引擎(之前是MyISAM)，说明其优势是有目共睹的。如果你不知道用什么存储引擎，那就用InnoDB，至少不会差。**
+
+
+作者：oscarwin
+链接：https://www.zhihu.com/question/20596402/answer/211492971
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。(String), https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603210325394&di=fc7d09f7e73968fdc404e63b8d489800&imgtype=0&src=http%3A%2F%2Fpic.downcc.com%2Fupload%2F2015-3%2F20153179412.png(String), null, 0(Integer), true(Boolean), false(Boolean), true(Boolean), true(Boolean), true(Boolean), 2020-10-20 21:24:34.451(Timestamp), 2020-10-20 21:24:34.451(Timestamp), 8(Long), 8(String), 1(Long), mysql(String)
+2020-10-20 21:24:34.705 DEBUG 40688 --- [http-nio-8080-exec-9] com.wjh.blog.mapper.BlogMapper.saveBlog  : <==    Updates: 1
+2020-10-20 21:24:34.707 DEBUG 40688 --- [http-nio-8080-exec-9] c.w.b.mapper.BlogMapper.saveBlogAndTag   : ==>  Preparing: insert into blog.t_blog_tags (tag_id, blog_id) values (?,?); 
+2020-10-20 21:24:34.708 DEBUG 40688 --- [http-nio-8080-exec-9] c.w.b.mapper.BlogMapper.saveBlogAndTag   : ==> Parameters: 8(Long), 1577879724082(Long)
+2020-10-20 21:24:34.711 DEBUG 40688 --- [http-nio-8080-exec-9] c.w.b.mapper.BlogMapper.saveBlogAndTag   : <==    Updates: 1
+2020-10-20 21:24:35.058 DEBUG 40688 --- [http-nio-8080-exec-2] c.w.b.m.B.getAllBlogQuery_COUNT          : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id 
+2020-10-20 21:24:35.059 DEBUG 40688 --- [http-nio-8080-exec-2] c.w.b.m.B.getAllBlogQuery_COUNT          : ==> Parameters: 
+2020-10-20 21:24:35.142 DEBUG 40688 --- [http-nio-8080-exec-2] c.w.b.m.B.getAllBlogQuery_COUNT          : <==      Total: 1
+2020-10-20 21:24:35.143 DEBUG 40688 --- [http-nio-8080-exec-2] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==>  Preparing: select b.id,b.title,b.update_time,b.recommend,b.type_id,t.id,t.name from blog.t_blog b left outer join blog.t_type t on b.type_id = t.id order by b.update_time desc LIMIT ? 
+2020-10-20 21:24:35.144 DEBUG 40688 --- [http-nio-8080-exec-2] c.w.b.mapper.BlogMapper.getAllBlogQuery  : ==> Parameters: 5(Integer)
+2020-10-20 21:24:35.147 DEBUG 40688 --- [http-nio-8080-exec-2] c.w.b.mapper.BlogMapper.getAllBlogQuery  : <==      Total: 5
+2020-10-20 21:24:35.149 DEBUG 40688 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TypeMapper.listType  : ==>  Preparing: select * from t_type 
+2020-10-20 21:24:35.149 DEBUG 40688 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TypeMapper.listType  : ==> Parameters: 
+2020-10-20 21:24:35.157 DEBUG 40688 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TypeMapper.listType  : <==      Total: 6
+2020-10-20 21:24:35.159 DEBUG 40688 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.listTag    : ==>  Preparing: select * from t_tag 
+2020-10-20 21:24:35.159 DEBUG 40688 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.listTag    : ==> Parameters: 
+2020-10-20 21:24:35.161 DEBUG 40688 --- [http-nio-8080-exec-2] com.wjh.blog.mapper.TagMapper.listTag    : <==      Total: 8

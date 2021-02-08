@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjh.blog.mapper.TypeMapper">
+    <!--sql语句-->
+<!--    <select id="saveType" resultType="com.wjh.blog.entity.Type">-->
+<!--        SELECT user_name,password-->
+<!--        FROM t_user-->
+<!--        WHERE user_name=#{userName} AND password=#{password}-->
+<!--    </select>-->
+    <insert id="saveType" parameterType="com.wjh.blog.entity.Type">
+        INSERT INTO t_type (
+
+			`name`
+		)VALUES (
+
+			#{name,jdbcType=VARCHAR}
+		)
+    </insert>
+
+    <select id="getType" resultType="com.wjh.blog.entity.Type">
+        SELECT *
+        FROM t_type
+        WHERE id=#{id}
+    </select>
+
+    <select id="listType" resultType="com.wjh.blog.entity.Type">
+        select * from t_type
+    </select>
+
+    <delete id="deleteType" >
+        delete from blog.t_type where id = #{id}
+    </delete>
+
+    <!--两个id可能会相冲，取别名即可-->
+    <resultMap id="type" type="com.wjh.blog.entity.Type">
+        <id property="id" column="tid"/>
+        <result property="name" column="name"/>
+        <collection property="blogs" ofType="com.wjh.blog.entity.Blog">
+            <id property="id" column="bid"/>
+            <result property="title" column="title"/>
+            <result property="typeId" column="type_id"/>
+        </collection>
+    </resultMap>
+
+    <select id="getAllType" resultMap="type">   <!--前端页面可以用type.blogs.size()-->
+        select t.id tid, t.name, b.id bid, b.title,b.type_id from blog.t_type t,blog.t_blog b where t.id = b.type_id
+    </select>
+
+<!--    update没写!!!!!!!!!!!!-->
+<!--    <delete id="deleteType" parameterType="com.wjh.blog.entity.Type">-->
+<!--    	DELETE FROM t_type WHERE id = #{id}-->
+<!--  	</delete>-->
+
+    <select id="getTypeByName" resultType="com.wjh.blog.entity.Type">
+        select * from t_type where name = #{name}
+    </select>
+
+</mapper>

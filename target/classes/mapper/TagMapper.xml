@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjh.blog.mapper.TagMapper">
+
+    <insert id="saveTag" parameterType="com.wjh.blog.entity.Tag">
+        INSERT INTO t_tag (
+
+			`name`
+		)VALUES (
+
+			#{name,jdbcType=VARCHAR}
+		)
+    </insert>
+
+    <select id="getTag" resultType="com.wjh.blog.entity.Tag">
+        select * from blog.t_tag where id = #{id}
+    </select>
+
+    <select id="listTag" resultType="com.wjh.blog.entity.Tag">
+        select * from t_tag
+    </select>
+
+    <delete id="deleteTag" >
+        delete from blog.t_tag where id = #{id}
+    </delete>
+
+    <select id="getTagByName" resultType="com.wjh.blog.entity.Tag">
+        select * from t_tag where `name` = #{name}
+    </select>
+
+    <resultMap id="tags" type="com.wjh.blog.entity.Tag">
+        <id property="id" column="tid"/>
+        <result property="name" column="name"/>
+        <collection property="blogs" ofType="com.wjh.blog.entity.Blog">
+            <id property="id" column="bid"/>
+            <result property="title" column="title"/>
+        </collection>
+    </resultMap>
+
+    <select id="getAllTag" resultMap="tags">
+        select t.id tid,t.name,b.id bid,b.title from blog.t_tag t,blog.t_blog b, blog.t_blog_tags bt
+        where t.id = bt.tag_id and b.id = bt.blog_id
+    </select>
+
+    <update id="updateTag" parameterType="com.wjh.blog.entity.Tag">
+        update blog.t_tag set name = #{name} where id = #{id};
+    </update>
+
+</mapper>
